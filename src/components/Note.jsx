@@ -1,8 +1,16 @@
-export default function Note() {
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+
+export default function Note(props) {
+  function onDeletePressed() {
+    props.delete(props.id);
+  }
   return (
     <div className="note">
-      <h1>This is the note Title</h1>
-      <p>This is the note content</p>
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+      <button onClick={onDeletePressed}>
+        <DeleteForeverIcon />
+      </button>
     </div>
   );
 }
